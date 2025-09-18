@@ -1,0 +1,337 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(rgba(255,255,255,0.85), rgba(199,210,254,0.85)), url('/img/pngtree-shopping-mall-supermarket-selection-merchandise-poster-background-material-picture-image_1048684.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #1e3a8a;
+  text-align: center;
+  min-height: 100vh;
+  animation: bodyFadeIn 1.2s;
+}
+
+@keyframes bodyFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Animation cho nội dung chính */
+.fade-in {
+  animation: fadeInUp 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Link mặc định */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #2563eb;
+}
+
+/* Container chính */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Thanh trên cùng */
+.topbar {
+  background: #2563eb;
+  color: #fff;
+  text-align: center;
+  padding: 14px;
+  border-bottom: 3px solid #1e40af;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.topbar .brand {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 8px;
+}
+.nav a {
+  margin-left: 12px;
+  opacity: 0.9;
+}
+.nav a:hover {
+  opacity: 1;
+}
+
+.nav .link-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  background: #e2e8f0;
+  text-align: center;
+  border-radius: 12px 12px 0 0;
+  font-size: 14px;
+  color: #334155;
+}
+
+/* Tiêu đề */
+h1 {
+  margin: 16px 0;
+  color: #1e3a8a;
+}
+
+/* Flex utility */
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.gap {
+  gap: 8px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+  justify-items: center;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Form */
+.form {
+  display: grid;
+  gap: 12px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form input:focus,
+.form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 4px rgba(37,99,235,0.3);
+}
+
+.form button {
+  width: 100%;
+}
+
+/* Button chung */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  min-width: 90px;
+  height: 42px;
+  border: 1px solid #2563eb;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  transition: 0.2s;
+  text-decoration: none;
+}
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn:hover {
+  opacity: 0.95;
+  background: #1d4ed8;
+  box-shadow: 0 6px 24px 0 rgba(37,99,235,0.15);
+  transform: translateY(-2px) scale(1.04);
+  transition: 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Hiệu ứng ripple cho nút */
+.btn:active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 0.4s linear;
+  pointer-events: none;
+}
+@keyframes ripple {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+.btn.danger {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+.btn.danger:hover {
+  background: #b91c1c;
+}
+
+/* Bảng */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: center;
+}
+.table th {
+  background: #f1f5f9;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+.table .actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Inline form trong bảng */
+.inline {
+  display: inline;
+  margin: 0;
+}
+
+/* Flash message */
+.flash {
+  padding: 12px;
+  border-radius: 12px;
+  margin: 12px 0;
+  text-align: center;
+  font-weight: 500;
+}
+.flash.success {
+  background: #d1fae5;
+  border: 1px solid #34d399;
+  color: #065f46;
+}
+.flash.error {
+  background: #fee2e2;
+  border: 1px solid #f87171;
+  color: #7f1d1d;
+}
+
+/* Nhóm nút dưới bảng */
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Form button */
+.form button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #2563eb;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.form button:hover {
+  background: #1d4ed8;
+}
+
+/* Form lọc sản phẩm */
+.row.gap input[type="text"],
+.row.gap select,
+.row.gap button {
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+}
+.row.gap input[type="text"] {
+  flex: 2;
+}
+.row.gap select {
+  flex: 1;
+}
+.row.gap button {
+  background: #2563eb;
+  color: #fff;
+  border: 1px solid #2563eb;
+}
+.row.gap button:hover {
+  background: #1d4ed8;
+}

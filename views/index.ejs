@@ -1,0 +1,24 @@
+<section>
+  <h1>Danh sách sản phẩm</h1>
+  <form method="get" class="row gap">
+    <input type="text" name="q" placeholder="Tìm kiếm sản phẩm theo tên..." value="<%= q %>">
+    <select name="supplier">
+      <option value="all" <%= supplierSelected==='all'?'selected':'' %>>Các nhà cung cấp</option>
+      <% suppliers.forEach(s=>{ %>
+        <option value="<%= s._id %>" <%= (supplierSelected==s._id.toString())?'selected':'' %>><%= s.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Lọc</button>
+  </form>
+
+  <div class="grid">
+    <% products.forEach(p=>{ %>
+      <div class="card">
+        <h3><%= p.name %></h3>
+        <p>Giá: <strong><%= p.price.toLocaleString() %></strong></p>
+        <p>Số lượng: <%= p.quantity %></p>
+        <p>Nhà cung cấp: <%= p.supplier ? p.supplier.name : '—' %></p>
+      </div>
+    <% }) %>
+  </div>
+</section>

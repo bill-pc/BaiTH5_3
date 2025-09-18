@@ -1,0 +1,47 @@
+<div class="row between center">
+  <h1>Sản phẩm</h1>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tên</th>
+      <th>Giá</th>
+      <th>Số lượng</th>
+      <th>Nhà cung cấp</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.forEach(p=>{ %>
+      <tr>
+        <td>
+          <%= p.name %>
+        </td>
+        <td>
+          <%= p.price.toLocaleString() %>
+        </td>
+        <td>
+          <%= p.quantity %>
+        </td>
+        <td>
+          <%= p.supplier ? p.supplier.name : '—' %>
+        </td>
+        <td>
+  <div class="btn-group actions">
+    <a class="btn" href="/products/<%= p._id %>/edit">Sửa</a>
+    <form method="post" action="/products/<%= p._id %>?_method=DELETE" class="inline">
+      <button type="submit" class="btn danger" onclick="return confirm('Xóa?')">Xóa</button>
+    </form>
+  </div>
+</td>
+
+
+      </tr>
+      <% }) %>
+  </tbody>
+</table>
+
+<div class="btn-group">
+  <a class="btn" href="/products/create">Thêm</a>
+  <a class="btn" href="/">Thoát</a>
+</div>

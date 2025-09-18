@@ -1,0 +1,26 @@
+<div class="row between center">
+  <h1>Nhà cung cấp</h1>
+ 
+</div>
+<table class="table">
+  <thead><tr><th>Tên</th><th>Địa chỉ</th><th>Điện thoại</th><th></th></tr></thead>
+  <tbody>
+    <% suppliers.forEach(s=>{ %>
+      <tr>
+        <td><%= s.name %></td>
+        <td><%= s.address %></td>
+        <td><%= s.phone %></td>
+        <td class="right">
+          <a class="btn" href="/suppliers/<%= s._id %>/edit">Sửa</a>
+          <form method="post" action="/suppliers/<%= s._id %>?_method=DELETE" class="inline">
+            <button class="btn danger" onclick="return confirm('Xóa?')">Xóa</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+<div class="btn-group">
+  <a class="btn" href="/suppliers/create">Thêm </a>
+  <a class="btn" href="/">Thoát</a>
+</div>
